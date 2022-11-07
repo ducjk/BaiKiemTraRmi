@@ -12,6 +12,7 @@ import java.rmi.Naming;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +40,7 @@ public class FrmDuc2 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         list1 = new java.awt.List();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 400));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -112,12 +113,16 @@ public class FrmDuc2 extends javax.swing.JFrame {
         String search = txtsearch.getText();
         
         try {
+            list1.removeAll();
             ArrayList<SinhVienbean> ds = tt.timkiem(search);
+            if (ds == null){
+                JOptionPane.showMessageDialog(null, "Danh sach tim kiem rong");
+            }
             for (SinhVienbean sv:ds){
-                list1.add(sv.getHoTen());
+                list1.add(sv.getMaSV() + "|" +sv.getHoTen() + "|" +sv.getDiaChi());
             }
         } catch (Exception ex) {
-            Logger.getLogger(FrmDuc2.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

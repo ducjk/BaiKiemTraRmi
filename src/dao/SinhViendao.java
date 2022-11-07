@@ -5,6 +5,7 @@
  */
 package dao;
 
+import bean.LopHocbean;
 import bean.SinhVienbean;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -68,5 +69,28 @@ public class SinhViendao {
             e.printStackTrace();
             return null;
 	}
+    }
+    
+    public ArrayList<LopHocbean> thongke() {
+        try {
+            String sql = "SELECT LopHoc.MaLop, TenLop, COUNT(SinhVien.MaSV) AS SoSinhVien FROM SinhVien INNER JOIN LopHoc ON SinhVien.MaLop = LopHoc.MaLop GROUP BY LopHoc.MaLop, TenLop";
+            PreparedStatement cmd = KetNoi.cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            ArrayList<LopHocbean> dslh = new ArrayList<LopHocbean>();
+            while(rs.next()){
+                String MaLop = rs.getString("MaLop");
+                String TenLop = rs.getString("TenLop");
+                int SoSinhVien = rs.getInt("SoSinhVien");
+                dslh.add(new LopHocbean(MaLop, TenLop, SoSinhVien));
+            }
+            
+            rs.close();
+            
+            return dslh;
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            return null;
+        }
     }
 }

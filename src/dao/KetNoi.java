@@ -5,8 +5,10 @@
  */
 package dao;
 
+import bean.LopHocbean;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,12 +28,16 @@ public class KetNoi {
         }
     }
     
-    public static void main(String[] args) {
-        try {
-            KetNoi kn = new KetNoi();
-            kn.KetNoi();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            KetNoi kn = new KetNoi();
+//            kn.KetNoi();
+//            SinhViendao svdao = new SinhViendao();
+//            ArrayList<LopHocbean> lh = svdao.thongke();
+//            
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

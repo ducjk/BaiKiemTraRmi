@@ -13,13 +13,23 @@ import java.io.Serializable;
  */
 public class LopHocbean implements Serializable {
     String MaLop, TenLop;
+    int SoSV;
 
     public LopHocbean() {
     }
 
-    public LopHocbean(String MaLop, String TenLop) {
+    public LopHocbean(String MaLop, String TenLop, int SoSV) {
         this.MaLop = MaLop;
         this.TenLop = TenLop;
+        this.SoSV = SoSV;
+    }
+
+    public int getSoSV() {
+        return SoSV;
+    }
+
+    public void setSoSV(int SoSV) {
+        this.SoSV = SoSV;
     }
 
     public String getMaLop() {

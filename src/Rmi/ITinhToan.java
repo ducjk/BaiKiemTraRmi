@@ -10,6 +10,7 @@ package Rmi;
  * @author DUC
  */
 
+import bean.LopHocbean;
 import bean.SinhVienbean;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -19,6 +20,6 @@ public interface ITinhToan extends Remote{
     
     public SinhVienbean KtDn(String SoTaiKhoan, String MatKhau) throws Exception;
     public ArrayList<SinhVienbean> timkiem(String search) throws Exception;
-    
+    public ArrayList<LopHocbean> thongke() throws Exception;
 }
 

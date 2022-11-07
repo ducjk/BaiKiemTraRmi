@@ -5,7 +5,6 @@
  */
 package Rmi;
 
-import Frm.FrmDuc1;
 import Frm.FrmHienThi;
 
 /**

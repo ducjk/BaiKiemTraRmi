@@ -5,6 +5,7 @@
  */
 package Rmi;
 
+import bean.LopHocbean;
 import bean.SinhVienbean;
 import bo.SinhVienbo;
 import dao.SinhViendao;
@@ -30,5 +31,10 @@ public class TinhToan extends UnicastRemoteObject implements ITinhToan{
     @Override
     public ArrayList<SinhVienbean> timkiem(String search) throws Exception {
         return svbo.timkiem(search);
+    }
+
+    @Override
+    public ArrayList<LopHocbean> thongke() throws Exception {
+        return svdao.thongke(); //To change body of generated methods, choose Tools | Templates.
     }
 }
